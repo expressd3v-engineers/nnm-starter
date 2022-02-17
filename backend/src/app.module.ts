@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { UserModule } from './core/user/user.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { AuthModule } from './api/auth/auth.module';
 import 'dotenv/config';
 
 @Module({
@@ -14,6 +15,7 @@ import 'dotenv/config';
       },
     }),
     UserModule,
+    AuthModule,
   ],
 })
 export class AppModule {}
