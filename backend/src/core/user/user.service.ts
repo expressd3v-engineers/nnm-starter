@@ -16,6 +16,26 @@ export class UserService {
     return this.userModel.findOne({ _id: id }).lean();
   }
 
+  async getUserByAttrService(attr: any): Promise<IUser> {
+    return this.userModel
+      .findOne(
+        {
+          ...attr,
+        },
+        [
+          '_id',
+          'name',
+          'email',
+          'phone',
+          'password',
+          'location',
+          'createdAt',
+          'updatedAt',
+        ],
+      )
+      .lean();
+  }
+
   async addUserService(user: any): Promise<IUser> {
     const newUser = new this.userModel(user);
     return newUser.save();
