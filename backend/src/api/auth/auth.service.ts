@@ -32,7 +32,10 @@ export class AuthService {
       sub: user.password,
     };
     return {
-      user: user,
+      user: {
+        ...user,
+        password: undefined,
+      },
       access_token: this.jwtService.sign(payload),
     };
   }

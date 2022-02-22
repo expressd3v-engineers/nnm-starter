@@ -11,8 +11,37 @@ export class User {
   @Prop({ required: true, index: true, unique: true })
   email: string;
 
-  @Prop({ index: true })
+  @Prop(
+    raw({
+      isVerified: {
+        type: Boolean,
+        default: false,
+      },
+      code: {
+        type: String,
+      },
+      token: {
+        type: String,
+      },
+    }),
+  )
+  emailConfirm: Record<any, any>;
+
+  @Prop({ index: true, unique: true, trim: true })
   phone: string;
+
+  @Prop(
+    raw({
+      isVerified: {
+        type: Boolean,
+        default: false,
+      },
+      code: {
+        type: String,
+      },
+    }),
+  )
+  phoneConfirm: Record<any, any>;
 
   @Prop({ index: true })
   name: string;
