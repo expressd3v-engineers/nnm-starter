@@ -4,20 +4,50 @@ export type IUser = User & Document;
 
 @Schema({ autoIndex: true })
 export class User {
-  @Prop({ required: true, index: true, unique: true })
-  id: string;
+  //Todo: When Id is required active
+  // @Prop({ required: true, index: true, unique: true })
+  // id: string;
 
   @Prop({ required: true, index: true, unique: true })
   email: string;
 
-  @Prop({ index: true })
+  @Prop(
+    raw({
+      isVerified: {
+        type: Boolean,
+        default: false,
+      },
+      code: {
+        type: String,
+      },
+      token: {
+        type: String,
+      },
+    }),
+  )
+  emailConfirm: Record<any, any>;
+
+  @Prop({ index: true, unique: true, trim: true })
   phone: string;
 
-  @Prop({ index: true })
-  firstName: string;
+  @Prop(
+    raw({
+      isVerified: {
+        type: Boolean,
+        default: false,
+      },
+      code: {
+        type: String,
+      },
+    }),
+  )
+  phoneConfirm: Record<any, any>;
 
   @Prop({ index: true })
-  lastName: string;
+  name: string;
+
+  @Prop({ required: true })
+  password: string;
 
   @Prop({
     type: String,

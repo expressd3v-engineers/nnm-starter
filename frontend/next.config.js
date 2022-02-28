@@ -1,6 +1,22 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
+const withPlugins = require("next-compose-plugins");
+const withAntdLess = require("next-plugin-antd-less");
 
-module.exports = nextConfig
+module.exports = withPlugins(
+    [
+        [
+            withAntdLess,
+            {
+                modifyVars: {
+                    "@primary-color": "#000000",
+                },
+                cssLoaderOptions: {},
+            }
+        ]
+    ],
+    {
+        env: {
+            PORT: process.env.PORT
+        },
+        reactStrictMode: true,
+    }
+)
