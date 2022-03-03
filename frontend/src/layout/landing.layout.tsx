@@ -1,9 +1,10 @@
 import React, {FC} from 'react';
 import {Col, Layout, Row } from 'antd';
 import Container from "../components/style/paper/container/index.style";
-import HeaderWrap from '../components/style/paper/header/wrap.style';
+import HeaderWrap from '../components/style/header/wrap.style';
 import Logo from "../assets/logo";
 import Link from 'next/link';
+import PageWrap from "../components/style/page/wrap.style";
 
 const { Header, Footer, Content } = Layout;
 
@@ -54,7 +55,11 @@ const LandingLayout: FC<LayoutProps> = ({children}) => {
                     </Container>
                 </HeaderWrap>
             </Header>
-            <Content>{children}</Content>
+            <Content>
+                <PageWrap>
+                    {children}
+                </PageWrap>
+            </Content>
             <Footer>
                 <Container>
                     <Row>
