@@ -8,8 +8,14 @@ export class User {
   // @Prop({ required: true, index: true, unique: true })
   // id: string;
 
+  @Prop({ index: true })
+  name: string;
+
   @Prop({ required: true, index: true, unique: true })
   email: string;
+
+  @Prop({ required: true })
+  password: string;
 
   @Prop(
     raw({
@@ -42,12 +48,6 @@ export class User {
     }),
   )
   phoneConfirm: Record<any, any>;
-
-  @Prop({ index: true })
-  name: string;
-
-  @Prop({ required: true })
-  password: string;
 
   @Prop({
     type: String,

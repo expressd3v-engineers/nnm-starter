@@ -7,9 +7,9 @@ module.exports = withPlugins(
             withAntdLess,
             {
                 modifyVars: {
-                    "@primary-color": "#000000"
+                    "@primary-color": "#000000",
                 },
-                cssLoaderOptions: {}
+                cssLoaderOptions: {},
             }
         ]
     ],
@@ -17,6 +17,6 @@ module.exports = withPlugins(
         env: {
             PORT: process.env.PORT
         },
-        reactStrictMode: true
+        reactStrictMode: true,
     }
 )
