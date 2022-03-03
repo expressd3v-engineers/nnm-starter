@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AuthModule } from './api/auth/auth.module';
 import 'dotenv/config';
 import { AppController } from './app.controller';
+import { PostModule } from './core/post/post.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { AppController } from './app.controller';
     }),
     UserModule,
     AuthModule,
+    PostModule,
   ],
   controllers: [AppController],
 })

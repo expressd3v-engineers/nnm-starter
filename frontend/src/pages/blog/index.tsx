@@ -1,15 +1,16 @@
 import React from 'react';
 import {NextPage} from "next";
+import LandingLayout from "../../layout/landing.layout";
 
 interface PageProps {
     posts?: any[];
 }
 
-const BlogsPage: NextPage<PageProps> = ({ posts }) => {
+const BlogsPage: NextPage<PageProps> = ({posts}) => {
     return (
-        <div>
+        <LandingLayout>
             BLOGS
-        </div>
+        </LandingLayout>
     );
 };
 
