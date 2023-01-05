@@ -1,9 +1,9 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get } from "@nestjs/common";
 
-@Controller('/')
+@Controller("/")
 export class AppController {
-  @Get()
-  async api() {
-    return 'Server is running';
-  }
+    @Get()
+    async api() {
+        return "Server is running";
+    }
 }
